@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-hadd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 21:18:36 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/06 22:29:19 by yel-hadd         ###   ########.fr       */
+/*   Created: 2022/10/06 22:17:36 by yel-hadd          #+#    #+#             */
+/*   Updated: 2022/10/06 22:28:05 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef LIBFT_H
-#define LIBFT_H
+int ft_isupper(int c)
+{
+	if (c >= 65 && c <= 90)
+		return (1);
+	return (0);
+}
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c)
-int		ft_isprint(int c)
-size_t	ft_strlen(const char *s)
-int		ft_toupper(int c)
-int		ft_tolower(int c)
+int ft_tolower(int c)
+{
+	if (ft_isupper(c))
+		return (c + 32);
+	return (c);
+}
 
-#endif
+/*
+#include <ctype.h>
+#include <stdio.h>
+int main(void)
+{
+	char test = 'A';
+
+	while (test <= 'Z' + 1)
+	{
+		printf("Original Function : %c || My Function : %c\n", tolower(test), ft_tolower(test));
+		test ++;
+	}
+}
+*/
