@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 22:47:39 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/06 23:18:04 by yel-hadd         ###   ########.fr       */
+/*   Created: 2022/10/06 22:54:00 by yel-hadd          #+#    #+#             */
+/*   Updated: 2022/10/06 23:14:37 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-#define LIBFT_H
+char	*ft_strchr(char *s, int c)
+{
+	unsigned long	i;
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c)
-int		ft_isprint(int c)
-size_t	ft_strlen(const char *s)
-int		ft_toupper(int c)
-int		ft_tolower(int c)
-char    *ft_strchr(char *s, int c)
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return (&s[i]);
+		i ++;
+	}
+	if (c == '\0')
+		return (&s[i]);
+	else
+		return (0);
+}
 
-#endif
+/*
+#include <string.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	char testchar = '\0';
+	char *str = {"Hello World!"};
+	if (strchr(str, testchar) == ft_strchr(str, testchar))
+		printf("IDENTICAL BRO");
+}
+*/
