@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 22:47:39 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/07 18:09:50 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/10/07 20:47:41 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,6 @@ char    *ft_strchr(char *s, int c);
 char    *ft_strrchr(char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
+void	ft_bzero(void *s, size_t n);
+
 #endif
