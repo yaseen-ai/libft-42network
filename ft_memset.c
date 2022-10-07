@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 13:24:41 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/07 14:39:41 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/10/07 18:09:22 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,28 @@
 
 void *ft_memset(void *b, int c, size_t len)
 {
+	unsigned char	*pb;
+
+	pb = (unsigned char*) b;
 	while (len != 0)
 	{
-		*(unsigned char*)b = (unsigned char) c;
-		b ++;
-		-- len;
+		*pb = (unsigned char) c;
+		pb ++;
+		len --;
 	}
+	return (b);
 }
 
+/*
 #include <stdio.h>
 
 int	main(void)
 {
-	void	*b = NULL;
-	int		c = 90;
+	char	b[60];
+	int		c = 33;
 	size_t	len = 60;
 
 	ft_memset(b, c, len);
 	printf("%s", b);
 }
+*/
