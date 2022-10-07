@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 22:47:39 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/07 13:24:29 by yel-hadd         ###   ########.fr       */
+/*   Created: 2022/10/07 13:24:41 by yel-hadd          #+#    #+#             */
+/*   Updated: 2022/10/07 14:39:41 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-#define LIBFT_H
-#include <unistd.h>
+#include "libft.h"
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-size_t	ft_strlen(const char *s);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
-char    *ft_strchr(char *s, int c);
-char    *ft_strrchr(char *s, int c);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void *ft_memset(void *b, int c, size_t len)
+{
+	while (len != 0)
+	{
+		*(unsigned char*)b = (unsigned char) c;
+		b ++;
+		-- len;
+	}
+}
 
-#endif
+#include <stdio.h>
+
+int	main(void)
+{
+	void	*b = NULL;
+	int		c = 90;
+	size_t	len = 60;
+
+	ft_memset(b, c, len);
+	printf("%s", b);
+}
