@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 15:19:10 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/08 15:54:59 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/10/08 16:30:57 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,25 @@
 
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	void	*dstcopy;
+	char	*dstcopy;
 
 	dstcopy = dst;
 	while (n -- > 0)
-		*dstcopy ++ = *src ++;
-		//*dst ++ = (void *) *src ++;
-	return (dst)
+		*dstcopy ++ = *(char *)src ++;
+	return (dst);
 }
 
+/*
 #include <string.h>
 #include <stdio.h>
 
 int	main(void)
 {
-	void	*dest;
-
-
+	char	*src = {"Hi boss, can I have a hamburger please?"};
+	size_t	n = ft_strlen(src);
+	char	dst[n];
+	
+	ft_memcpy(dst, src, n);
+	printf("%s", dst);
 }
+*/
