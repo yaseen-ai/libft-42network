@@ -6,9 +6,11 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 22:50:37 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/06 22:50:39 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/10/08 14:11:46 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t ft_strlen(const char *s)
 {

@@ -6,11 +6,37 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 21:01:41 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/07 21:07:08 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/10/08 14:13:41 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void *memchr(const void *s, int c, size_t n)
+#include "libft.h"
+
+void *ft_memchr(const void *s, int c, size_t n)
 {
-	//amazing code goes here
+	while (n > 0)
+	{
+		if (c == *(unsigned char*) s)
+			return ((void *) s);
+		s ++;
+		n --;
+	}
+	return (0);
 }
+
+/*
+#include <string.h>
+#include <stdio.h>
+
+int main(void)
+{
+	char *s = {"Hello boss can I have a hamburger please?"};
+	int c = 'H';
+	size_t n = ft_strlen(s);
+	
+	if (ft_memchr(s, c, n) == memchr(s, c, n))
+		printf("Identical");
+	else
+		printf("not identical, retry!");
+}
+*/
