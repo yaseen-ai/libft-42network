@@ -5,30 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 22:57:00 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/13 00:33:34 by yel-hadd         ###   ########.fr       */
+/*   Created: 2022/10/16 15:01:23 by yel-hadd          #+#    #+#             */
+/*   Updated: 2022/10/16 16:30:37 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
+#include <stdio.h>
 
-char *strnstr(const char *s1, const char *s2, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	len;
+	size_t	nlen;
 	size_t	i;
+	char	*start;
 
-	len = s2;
-	if (len == 0)
-		return (s1);
-	while(*s1 ++)
+	start = (char *) haystack;
+	nlen = ft_strlen(needle);
+	if (!nlen)
+		return (0);
+	while (*haystack ++ && len -- > 0)
 	{
 		i = 0;
-		while (*s1+i == *s2+i)
-		{
-			if (i == len)
-				return (s1 - i);
-			i ++;
-		}
+		while (haystack[i] == needle[i])
+			i += 1;
+		if (i == nlen)
+			return ((char *) haystack);
 	}
-	return (0);
+	return (start);
+}
+
+int main(void)
+{
+	char *s1 = {"Hello World"};
+	char *s2 = {"o "};
+
+	printf("%s\n", ft_strnstr(s1, s2, 20));
 }
