@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 15:01:23 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/16 16:30:37 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/10/16 16:31:23 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	return (start);
 }
 
+/*
+#include <string.h>
+#include <stdio.h>
+
 int main(void)
 {
 	char *s1 = {"Hello World"};
@@ -42,3 +46,4 @@ int main(void)
 
 	printf("%s\n", ft_strnstr(s1, s2, 20));
 }
+*/
