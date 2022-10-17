@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:35:11 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/10 21:42:35 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/10/17 15:19:42 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ void	ft_bzero(void *s, size_t n)
 	ft_memset((void *) s, 0, (size_t) n);
 }
 
+/*
 #include <stdio.h>
 #include <string.h>
-/*
+
 int main(void)
 {
 	char	s[]=;
@@ -27,7 +28,7 @@ int main(void)
 
 	ft_bzero(s, n);
 	printf("%s", s);	
-}*/
+}
 
 int main (void)
 {
@@ -38,4 +39,4 @@ int main (void)
     bzero(src, 5);
 
 	printf("%s", src);
-}
+}*/
