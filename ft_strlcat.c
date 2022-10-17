@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 21:05:23 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/12 22:53:47 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/10/17 15:06:44 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,18 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	dstlen;
 	size_t	srclen;
-	size_t	counter;
+	size_t	i;
 
-	dstlen = ft_strlen(dst);
-	srclen = ft_strlen(src);
-	counter = dstsize - dstlen - 1;
-	dst += dstlen;
-	while (*src && counter --)
-		*dst ++ = *src ++;
-	*dst = '\0';
+	dstlen = strlen(dst);
+	srclen = strlen(src);
+	if (dstlen < dstsize - 1)
+	{
+		i = dstsize - dstlen - 1;
+		dst += dstlen;
+		while (*src && i-- && !*dst)
+			*(dst ++) = *(src ++);
+		*dst = '\0';
+	}
 	return (dstlen + srclen);
 }
 
@@ -32,21 +35,20 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
+int	main(void)
 {
-	char	dst[50];
-	//char	*src = {" World!"};
-	char	*src = {""};
-	size_t	dstsize = 12;
+	char	dst[30];
+	char	*src = {"World!"};
+	//char	*src = {""};
 	size_t	temp;
-	
-	dst[0] = 'H';
-	dst[1] = 'e';
-	dst[2] = 'l';
-	dst[3] = 'l';
-	dst[4] = 'o';
-	temp = ft_strlcat(dst, src, dstsize);
+	dst[0] = 'A';
+	dst[1] = 'A';
+	dst[2] = 'A';
+	dst[3] = 'A';
+	dst[3] = '\0';
+
 	printf("%s\n", dst);
-	printf("%lu", temp);
-}
-*/
+	temp = strlcat(dst, src, 9);
+	printf("%s\n", dst);
+	printf("%zu\n", temp);
+}*/
