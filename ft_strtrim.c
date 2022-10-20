@@ -13,29 +13,42 @@
 #include "libft.h"
 #include <stdio.h>
 
-char *getstart(char *s1, char const *set)
+int char_exists(char c, char *set)
 {
-	char	*start;
-	while (*s1)
+	while (*set)
+	{
+		if (*set == c)
+			return (1);
+		set ++;
+	}
+	return (0);
 }
 
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
-	char	*start;
-	//char	*stop;
+	size_t	len;
+	char	*end;
 
-	while (*s1)
+	len = ft_strlen(s1) - 1;
+	end = (char *)s1 + len;
+	
+	while (char_exists(*s1, (char *)set))
 	{
-		while (*set)
+		len --;
+		s1 ++;
 	}
-	return ((char *)s1);
+	while (char_exists(*end --,(char *)set))
+		len --;
+	return (ft_substr((char const *) s1, 0, len));
 }
 
 int	main(void)
 {
-	char	*s1 = {"*-*Hello World*-"};
+	char	*s1 = {"******------**************///-*Hello Worlx///**-*********"};
 	char	*set = {"*-*"};
-	printf("%s\n", ft_strtrim(s1, set));
+	char	*stop;
+
+	stop = ft_strtrim(s1, set);
+	printf("%s\n", stop);
 }
