@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int char_exists(char c, char *set)
+
+static int char_exists(char c, char *set)
 {
 	while (*set)
 	{
@@ -30,25 +30,25 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	len;
 	char	*end;
 
+	while (char_exists(*s1, (char *)set))
+		s1 ++;
 	len = ft_strlen(s1) - 1;
 	end = (char *)s1 + len;
-	
-	while (char_exists(*s1, (char *)set))
-	{
-		len --;
-		s1 ++;
-	}
 	while (char_exists(*end --,(char *)set))
 		len --;
 	return (ft_substr((char const *) s1, 0, len));
 }
 
+/*
+#include <stdio.h>
+
 int	main(void)
 {
-	char	*s1 = {"******------**************///-*Hello Worlx///**-*********"};
-	char	*set = {"*-*"};
+	char	*s1 = {"******------**************-*Hello World**-*********"};
+	char	*set = {"*-"};
 	char	*stop;
 
 	stop = ft_strtrim(s1, set);
 	printf("%s\n", stop);
 }
+*/
