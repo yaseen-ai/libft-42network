@@ -1,3 +1,7 @@
 *.swp
 *.out
 .vscode*
+*.o
+a.out*
+.DS*
+test*
