@@ -26,36 +26,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dstcpy);
 }
-
-
-/*
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	void	*dstcpy;
-
-	dstcpy = dst;
-	if (dst == NULL)
-		return (dstcpy);
-	while ((n > 0))
-	{
-		*(char *)dst ++ = *(char *)src ++;
-		n --;
-	}
-	return (dstcpy);
-}
-*/
-
-/*
-#include <string.h>
-#include <stdio.h>
-
-int	main(void)
-{
-	char	*src = "Hi boss, can I have a hamburger please?";
-	size_t	n = ft_strlen(src);
-	char	dst[n];
-	
-	ft_memcpy(dst, src, n);
-	printf("%s", dst);
-}
-*/
