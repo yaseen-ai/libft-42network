@@ -14,13 +14,36 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*dstcopy;
+	void	*dstcpy;
 
-	dstcopy = dst;
-	while (n -- > 0)
-		*dstcopy ++ = *(const char *)src ++;
-	return (dst);
+	dstcpy = dst;
+	if (dst == NULL && src == NULL)
+		return (dstcpy);
+	while ((n > 0))
+	{
+		*(char *)dst ++ = *(char *)src ++;
+		n --;
+	}
+	return (dstcpy);
 }
+
+
+/*
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	void	*dstcpy;
+
+	dstcpy = dst;
+	if (dst == NULL)
+		return (dstcpy);
+	while ((n > 0))
+	{
+		*(char *)dst ++ = *(char *)src ++;
+		n --;
+	}
+	return (dstcpy);
+}
+*/
 
 /*
 #include <string.h>
