@@ -11,13 +11,31 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char buffer[ft_strlen(src)-1];
+	unsigned char	*srcpy;
+	unsigned char	*dstcpy;
 
-	ft_memcpy(buffer, src, len);
-	ft_memcpy(dst, buffer, len);
-	//printf("%s", dst);
+	srcpy = (unsigned char*)src;
+	dstcpy = (unsigned char*)dst;
+	if (!src && !dst)
+		return (NULL);
+	if (dstcpy > srcpy)
+		while (len --)
+			dstcpy[len] = srcpy[len];
+	else if (dstcpy < srcpy)
+		ft_memcpy(dst, src, len);
 	return (dst);
 }
+
+/*
+int main(void)
+{
+	char dst[12];
+	char *src = {"Hello World!"};
+
+	ft_memmove(dst, src, 11);
+	printf("%s", dst);
+}*/
