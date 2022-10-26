@@ -11,44 +11,41 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	dstlen;
-	size_t	srclen;
-	size_t	i;
+	size_t i;
+	size_t y;
 
-	dstlen = ft_strlen(dst);
-	srclen = ft_strlen(src);
-	if (dstlen < dstsize - 1)
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	if (dstsize <= ft_strlen(dst))
+		return (ft_strlen(src) + dstsize);
+	y = 0;
+	i = ft_strlen(dst);
+	if (dstsize > i)
 	{
-		i = dstsize - dstlen - 1;
-		dst += dstlen;
-		while (*src && i-- && !*dst)
-			*(dst ++) = *(src ++);
-		*dst = '\0';
+		while(src[y] != '\0' && i < dstsize - 1)
+			dst[i ++] = src[y ++];
+		dst[i] = '\0';
 	}
-	return (dstlen + srclen);
+	return (dstsize);
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
 
 int	main(void)
 {
 	char	dst[30];
 	char	*src = {"World!"};
-	//char	*src = {""};
 	size_t	temp;
 	dst[0] = 'A';
 	dst[1] = 'A';
 	dst[2] = 'A';
-	dst[3] = 'A';
-	dst[3] = '\0';
+	dst[3] = 'B';
+	dst[4] = '\0';
 
-	printf("%s\n", dst);
-	temp = strlcat(dst, src, 9);
+	temp = ft_strlcat(dst, src, 11);
 	printf("%s\n", dst);
 	printf("%zu\n", temp);
-}*/
+}
+
