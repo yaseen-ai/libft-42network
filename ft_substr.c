@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -38,14 +37,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub[i] = '\0';
 	return (sub);
 }
-
-/*
-int	main(void)
-{
-	char *str = "i just want this part #############";
-	size_t size = 20;
-	char *ret = ft_substr(str, 5, size);
-
-	printf("%s\n", ret);
-}
-*/
