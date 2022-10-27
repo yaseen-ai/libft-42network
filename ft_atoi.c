@@ -12,6 +12,17 @@
 
 #include "libft.h"
 
+static int	filter(char *str)
+{
+	if ((ft_strlen(str) >= 19)
+		&& (ft_strncmp(str, "9223372036854775807", 19) >= 0))
+		return (-1);
+	if ((ft_strlen(str) >= 20)
+		&& (ft_strncmp(str, "-9223372036854775807", 20) >= 0))
+		return (0);
+	return (1);
+}
+
 int	ft_atoi(const char *str)
 {
 	int	result;
@@ -21,6 +32,8 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	while (ft_isspace(*str))
 		str ++;
+	if (filter((char *) str) != 1)
+		return (filter((char *) str));
 	if ((*str == '-') || (*str == '+'))
 	{
 		if (*str == '-')
@@ -34,13 +47,3 @@ int	ft_atoi(const char *str)
 	}
 	return (result * sign);
 }
-
-/*
-#include <stdio.h>
-
-int main(int argc, char *argv[])
-{
-	(void) argc;
-	printf("%d\n", ft_atoi(argv[1]));
-}
-*/
