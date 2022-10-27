@@ -18,15 +18,18 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	slen2;
 	char	*join;
 
+	if (!s1 || !s2)
+		return (0);
 	slen1 = ft_strlen(s1);
 	slen2 = ft_strlen(s2);
-	join = malloc((slen1 + slen2) * sizeof(char));
+	join = malloc((slen1 + slen2 + 1) * sizeof(char));
 	if (!join)
 		return (0);
 	while (*s1)
 		*join ++ = *s1 ++;
 	while (*s2)
 		*join ++ = *s2 ++;
+	*join = '\0';
 	return (join - slen1 - slen2);
 }
 

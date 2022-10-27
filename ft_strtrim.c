@@ -30,10 +30,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	len;
 	char	*end;
 
+	if (!s1)
+		return (0);
 	while (char_exists(*s1, (char *)set))
 		s1 ++;
-	len = ft_strlen(s1) - 1;
-	end = (char *)s1 + len;
+	len = ft_strlen(s1);
+	end = (char *)s1 + len - 1;
 	while (char_exists(*end --,(char *)set))
 		len --;
 	return (ft_substr((char const *) s1, 0, len));
