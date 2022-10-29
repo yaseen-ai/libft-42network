@@ -39,5 +39,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strdup(const char *s1);
 char    *ft_itoa(int n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif
