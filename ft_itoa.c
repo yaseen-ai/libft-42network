@@ -28,72 +28,94 @@ static int	get_len(int num)
 	return (result);
 }
 
-static int	get_sign(int num)
+static char	*str_reverse(char *str)
 {
-	if (num >= 0)
-		return (1);
-	else
-		return (2);
+	char	temp;
+	size_t	i;
+	size_t	j;
+
+	if (ft_strlen(str) == 1)
+		return (str);
+	j = ft_strlen(str) - 1;
+	i = 0;
+	while (i <= j)
+	{
+		if (str[i] != '-')
+		{				
+			temp = str[i];
+			str[i] = str[j];
+			str[j] = temp;
+			i ++;
+			j --;
+		}
+		else
+			i ++;
+	}
+	return (str);
 }
 
-static char	*get_revstr(n, len)
+static char	*get_str(n, len)
 {
 	char	*rev_result;
 	size_t	i;
 
-	if (n < 0)
-		n = n * -1;
 	rev_result = malloc(len * sizeof(char));
-	if (n == 0)
-	{
-		rev_result[0] = '0';
-		rev_result[1] = '\0';
+	if (!rev_result)
 		return (rev_result);
+	if (n < 0)
+	{
+		n = n * -1;
+		rev_result[0] = '-';
+		i = 1;
 	}
-	i = 0;
+	else
+		i = 0;
 	while (n)
 	{
-		rev_result[i ++] = (char)((n % 10) + 48);
+		rev_result[i ++] = ((n % 10) + 48);
 		n /= 10;
 	}
 	rev_result[i] = '\0';
-	return (rev_result);
+	return (str_reverse(rev_result));
+}
+
+static char	*return_zero(void)
+{
+	char	*result;
+
+	result = malloc(2 * sizeof(char));
+	if (!result)
+		return (result);
+	result[0] = '0';
+	result[1] = '\0';
+	return (result);
 }
 
 char	*ft_itoa(int n)
 {
-	int		i;
+	int		sign;
 	char	*result;
-	char	*rev_result;
-	char	*start;
+	size_t	i;
+	char	*value;
 
-	result = malloc((get_len(n) + get_sign(n)) * sizeof(char));
-	if (!result)
-		return (result);
-	rev_result = get_revstr(n, (get_len(n)+get_sign(n)));
-	start = rev_result;
-	rev_result += (ft_strlen(rev_result) - 1);
-	if (get_sign(n) > 1)
+	if (n >= 0)
+		sign = 1;
+	else
+		sign = 2;
+	if (n == 0)
+		return (return_zero());
+	else if (n == -2147483648)
 	{
-		i = 1;
-		result[0] = '-';
-		while (i < (get_len(n) + 1))
-			result[i ++] = *rev_result --;
+		result = malloc((get_len(n) + sign) * sizeof(char));
+		if (!result)
+			return (result);
+		i = 0;
+		value = "-2147483648";
+		while (*value)
+			result[i++] = *value++;
 		result[i] = '\0';
 	}
 	else
-	{
-		i = 0;
-		while (i < get_len(n))
-			result[i ++] = *rev_result --;
-	}
-	free(start);
+		result = get_str(n, (get_len(n) + sign));
 	return (result);
 }
-
-/*
-int main(void)
-{
-    printf("%s\n", ft_itoa(-2147483648));
-}
-*/
