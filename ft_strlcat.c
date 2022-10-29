@@ -18,6 +18,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t i;
 	size_t y;
 
+	// what if dstsize is bigger than dst+src
 	if (dstsize == 0)
 		return (ft_strlen(src));
 	if (dstsize <= ft_strlen(dst))
@@ -32,7 +33,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	}
 	return (dstsize);
 }
-
+/*
 int	main(void)
 {
 	char	dst[30];
@@ -48,4 +49,4 @@ int	main(void)
 	printf("%s\n", dst);
 	printf("%zu\n", temp);
 }
-
+*/
