@@ -68,9 +68,11 @@ char	**ft_split(char const *s, char c)
 			count ++;
 		i ++;
 	}
-	free(copy);
 	result = malloc((count + 1) * sizeof(char *));
+	if (!result)
+		return (NULL);
 	result = fill(result, copy, c, count);
+	free(copy);
 	return (result);
 }
 
