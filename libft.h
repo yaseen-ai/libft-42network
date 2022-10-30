@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 22:47:39 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/17 16:50:43 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/10/30 11:17:50 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strdup(const char *s1);
 char    *ft_itoa(int n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char    *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void    ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif
