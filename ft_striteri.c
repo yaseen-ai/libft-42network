@@ -6,7 +6,19 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 19:54:45 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/29 19:54:48 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/10/30 12:32:20 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	size_t	i;
+
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (*s)
+		f(i ++, s ++);
+}
