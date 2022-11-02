@@ -6,8 +6,21 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 22:59:52 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/02 22:59:54 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/02 23:05:19 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
+int	ft_lstsize(t_list *lst)
+{
+	int	len;
+
+	len = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		len += 1;
+	}
+	return (len);
+}
