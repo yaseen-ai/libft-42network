@@ -6,12 +6,11 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:01:45 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/02 23:01:29 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/02 23:02:30 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
