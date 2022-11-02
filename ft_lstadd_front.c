@@ -6,21 +6,14 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:01:45 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/02 22:44:32 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/02 23:01:29 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-
-/*
-new => lst
-lst = > 
-*/
-
-
-void    ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (new)
 	{
@@ -28,7 +21,7 @@ void    ft_lstadd_front(t_list **lst, t_list *new)
 		*lst = new;
 	}
 }
-
+/*
 int main(void)
 {
 	t_list	*list;
@@ -45,3 +38,4 @@ int main(void)
 		list = list->next;
 	}
 }
+*/
