@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 00:57:28 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/03 01:48:14 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/05 15:42:24 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!*lst)
+	t_list	*temp;
+
+	temp = *lst;
+	if (!temp)
+		*lst = new;
+	else
 	{
-		ft_lstadd_front(lst, new);
-		return ;
-	}
-	while (1)
-	{
-		if (!(*lst)->next)
-		{
-			(*lst)->next = new;
-			return ;
-		}
-		else
-			*lst = (*lst)->next;
+		while (temp->next)
+			temp = temp->next;
+		temp->next = new;
 	}
 }
+
 /*
 int main(void)
 {
