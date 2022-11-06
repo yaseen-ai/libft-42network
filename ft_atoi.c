@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:14:24 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/17 15:04:44 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/06 11:41:18 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,23 @@ static int	filter(char *str)
 		&& (ft_strncmp(str, "-9223372036854775807", 20) >= 0))
 		return (0);
 	return (1);
+}
+
+static int	ft_isspace(char c)
+{
+	if (c == ' ')
+		return (1);
+	if (c == '\f')
+		return (1);
+	if (c == '\n')
+		return (1);
+	if (c == '\r')
+		return (1);
+	if (c == '\t')
+		return (1);
+	if (c == '\v')
+		return (1);
+	return (0);
 }
 
 int	ft_atoi(const char *str)

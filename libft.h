@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 22:47:39 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/05 13:22:49 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/06 11:49:14 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memcpy(void *dst, const void  *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
-int		ft_isspace(char c);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
