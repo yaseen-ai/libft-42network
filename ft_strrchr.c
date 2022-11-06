@@ -6,27 +6,27 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 12:07:49 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/07 12:16:20 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/06 12:42:53 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strrchr(char *s, int c)
 {
 	char	*save;
 
-	save = (char *) 0;
+	if ((char) c == '\0')
+		return (&s[ft_strlen(s)]);
+	save = NULL;
 	while (*s)
 	{
-		if (*s == c)
+		if (*s == (char) c)
 			save = (char *) s;
 		s ++;
 	}
-	if (save == (char *) 0 && c == '\0')
-		return (s);
-	else
-		return (save);
+	return (save);
 }
-
 /*
 #include <string.h>
 #include <stdio.h>
