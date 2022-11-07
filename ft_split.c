@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:48:44 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/08 00:50:46 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/08 00:54:30 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,15 @@ static size_t	getnextstop(char *str, char c)
 static char	**fill(char **result, char *copy, char c, size_t count)
 {
 	size_t	i;
+	char	*temp;
 
 	i = 0;
 	while (i < count)
 	{
-		result[i] = ft_substr(copy, 0, getnextstop(copy, c));
+		temp = ft_substr(copy, 0, getnextstop(copy, c));
+		if (!temp)
+			return ((char **) NULL);
+		result[i] = temp;
 		copy = getnextstart(copy, c);
 		i ++;
 	}
