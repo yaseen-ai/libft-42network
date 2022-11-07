@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:58:57 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/17 17:30:43 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/08 00:36:01 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,21 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
 	char	*sub;
 	size_t	slen;
 
 	if (!s)
 		return (NULL);
 	slen = ft_strlen(s);
+	if (len > slen - start)
+		len = slen - start;
 	if (start >= slen)
 		return (ft_strdup(""));
 	sub = malloc((len + 1) * sizeof(char));
 	if (!sub)
-		return (0);
-	while (start -- > 0)
-		s ++;
-	i = 0;
-	while (i < len)
-	{
-		sub[i] = s[i];
-		i ++;
-	}
-	sub[i] = '\0';
+		return (NULL);
+	s += start;
+	ft_memcpy(sub, s, len);
+	sub[len] = '\0';
 	return (sub);
 }
