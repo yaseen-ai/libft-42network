@@ -6,87 +6,108 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:48:44 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/08 00:54:30 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:20:49 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static char	*getnextstart(char *str, char c)
-{
-	while (*str != c && *str)
-		str ++;
-	while (*str == c && *str)
-		str ++;
-	return (str);
-}
-
-static size_t	getnextstop(char *str, char c)
+void free_a(char **arr)
 {
 	size_t	i;
-	size_t	len;
 
 	i = 0;
-	len = ft_strlen(str);
-	while (str[i] != c && i < len)
-		i ++;
-	return (i);
+	while (*arr)
+		free(arr ++);
+	free(arr);
 }
 
-static char	**fill(char **result, char *copy, char c, size_t count)
+static size_t	get_count(char *s, char c)
 {
 	size_t	i;
+	size_t	count;	
+
+	i = 0;
+	count = 0;
+	while (s[i++])
+	{
+		if ((s[i] == c) && (s[i+1] != c) && (s[i+1] != '\0'))
+			count ++;
+	}
+	return (count);
+}
+
+char	*get_start(char *s, char c)
+{
+	while ((*s != c) && *s)
+		s ++;
+	while ((*s == c) && *s)
+		s ++;
+	return (s);
+}
+
+unsigned int	get_stop(char *s, char c)
+{
+	size_t	count;
+
+	count = 0;
+	while ((*s != c) && *s)
+	{
+		s ++;
+		count ++;
+	}
+	return (count);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	count;
+	size_t	i;
+	char	*start;
+	char	**result;
 	char	*temp;
 
+	if (!s || !*s)
+		return (NULL);
+	s = ft_strtrim(s, &c);
+	count = get_count((char *)s, c);
+	result = (char **) malloc((count+1)*sizeof(char *));
+	if (!result)
+		return (NULL);
+	start = (char *) s;
 	i = 0;
-	while (i < count)
+	while (i <= count)
 	{
-		temp = ft_substr(copy, 0, getnextstop(copy, c));
+		temp = ft_substr(start, 0, get_stop(start, c));
 		if (!temp)
-			return ((char **) NULL);
+		{
+			free_a(result);
+			return (NULL);
+		}
 		result[i] = temp;
-		copy = getnextstart(copy, c);
+		start = get_start(start, c);
+		if (!start)
+			break;
 		i ++;
 	}
 	result[i] = (char *) NULL;
 	return (result);
 }
 
-char	**ft_split(char const *s, char c)
-{
-	char	*copy;
-	char	**result;
-	size_t	i;
-	size_t	count;
-
-	if (!s || !c)
-		return (NULL);
-	i = 0;
-	count = 1;
-	copy = (char *)s;
-	copy = ft_strtrim(copy, &c);
-	while (copy[i])
-	{
-		if (copy[i] == c && copy[i + 1] != c)
-			count ++;
-		i ++;
-	}
-	result = malloc((count + 1) * sizeof(char *));
-	if (!result)
-		return (NULL);
-	result = fill(result, copy, c, count);
-	free(copy);
-	return (result);
-}
-
 /*
 int main(void)
 {
-    char *s = {",,,,,,,,ello,,,,,,World,1,3444444444,*,,,,,,"};
-    char c = ',';
-    char **result = NULL;
-    result = ft_split(s, c);
-    printf("%s\n", result[0]);
+    char *s = "lorem  ";
+	char **result;
+	size_t	i;
+
+	i = 0;
+	result = ft_split(s, ' ');
+	while (result[i])
+	{
+		printf("%s\n", result[i]);
+		i ++;
+	}
 }
 */
