@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:48:44 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/10 10:56:31 by relkabou         ###   ########.fr       */
+/*   Updated: 2022/11/10 20:54:58 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,32 @@ size_t	word_len(char const *s, char c)
 	size_t	i;
 
 	i = 0;
-	while(s[i] != c && s[i])
+	while (s[i] != c && s[i])
 		i++;
 	return (i);
 }
 
 void	free_all(char **s, size_t index)
 {
-	while (index --)
+	while (index)
 	{
 		free(s[index]);
+		index --;
 	}
 	free(s);
+}
+
+char	**allocate(char **result, size_t i, char const *s, char c)
+{
+	result[i] = (char *) malloc((word_len(s, c) + 1) * sizeof(char));
+	if (!result[i])
+	{
+		free_all(&result[i], i);
+		return (NULL);
+	}
+	ft_memcpy(result[i], s, word_len(s, c));
+	result[i][word_len(s, c)] = '\0';
+	return (result);
 }
 
 char	**ft_split(char const *s, char c)
@@ -68,11 +82,9 @@ char	**ft_split(char const *s, char c)
 	{
 		while (*s == c && *s)
 			s ++;
-		result[i] = (char *) malloc((word_len(s, c) + 1) * sizeof(char));
-		if (!result[i])
-			free_all(&result[i], i);
-		ft_memcpy(result[i], s, word_len(s, c));
-		result[i][word_len(s, c)] = '\0';
+		result = allocate(result, i, s, c);
+		if (!result)
+			return (NULL);
 		i ++;
 		while (*s != c && *s)
 			s++;
@@ -80,16 +92,3 @@ char	**ft_split(char const *s, char c)
 	result[i] = (char *) NULL;
 	return (result);
 }
-
-// int	main(int argc, char **argv)
-// {
-// 	int i = 0;
-// 	(void)argc;
-// 	char **tab = ft_split(argv[1], ' ');
-// 	while (tab[i])
-// 	{
-// 		printf("*%s\n", tab[i]);
-// 		i++;
-// 	}
-
-// }

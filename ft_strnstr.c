@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 15:01:23 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/07 02:13:55 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/10 21:48:50 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
-/*
-#include <string.h>
-#include <stdio.h>
-
-int main(void)
-{
-	char *s1 = "see FF your FF return FF now FF";
-	char *s2 = "FF";
-	size_t max = strlen(s1);
-	char *i1 = strnstr(s1, s2, max);
-	char *i2 = ft_strnstr(s1, s2, max);
-
-	printf("%s\n", i1);
-	printf("%s\n", i2);
-}
-*/

@@ -6,20 +6,20 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 22:47:39 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/08 22:43:51 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/10 21:19:20 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-#define LIBFT_H
-#include <unistd.h>
-#include <stdlib.h>
+# define LIBFT_H
+# include <unistd.h>
+# include <stdlib.h>
 
 typedef struct s_list
 {
-	void *content;
-	struct s_list *next;
-} t_list;
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
@@ -31,9 +31,9 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	*ft_memmove(void *dst, const void *src, size_t len);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-void	*ft_memcpy(void *dst, const void  *src, size_t n);
-void    ft_lstdelone(t_list *lst, void (*del)(void*));
-void    ft_lstadd_front(t_list **lst, t_list *new);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strjoin(char const *s1, char const *s2);

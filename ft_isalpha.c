@@ -6,16 +6,16 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 22:49:24 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/06 22:49:26 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/10 20:28:28 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
 	else
-		return 0;
+		return (0);
 }
 /*
 int main(void)

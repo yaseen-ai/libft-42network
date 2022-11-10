@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 22:54:00 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/06 11:59:06 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/10 21:11:47 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,3 @@ char	*ft_strchr(char *s, int c)
 	}
 	return (NULL);
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-
-int	main(void)
-{
-	char testchar = '\0';
-	char *str = {"Hello World!"};
-	if (strchr(str, testchar) == ft_strchr(str, testchar))
-		printf("IDENTICAL BRO");
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 15:19:10 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/10/10 22:13:38 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/10 21:16:40 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	void	*dstcpy;
 
 	dstcpy = dst;
-	if (dst == NULL && src == NULL)
+	if (!dst && !src)
 		return (dstcpy);
 	while ((n > 0))
 	{

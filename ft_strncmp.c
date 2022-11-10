@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 12:23:41 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/06 13:20:16 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/10 21:48:44 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-
-int main(void)
-{
-	char	*str1 = {"jfejfhbeifn"};
-	char	*str2 = {""};
-	int		num = 8;
-
-	printf("%d", strncmp(str1, str2, num));
-	if (strncmp(str1, str2, num) == ft_strncmp(str1, str2, num))
-		printf("IDENTICAL BRO");
-	else
-		printf(" NOT IDENTICAL, KEEP TRYING!");
-	
-}
-*/
