@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <fcntl.h>
 
 void    ft_putstr_fd(char *s, int fd)
 {
@@ -19,3 +20,10 @@ void    ft_putstr_fd(char *s, int fd)
     while(*s)
         ft_putchar_fd(*s ++, fd);
 }
+
+
+// int main()
+// {
+//     int fd = open("file.txt", O_RDWR | O_APPEND);
+//     ft_putstr_fd("Hello World\n", fd);   
+// }
