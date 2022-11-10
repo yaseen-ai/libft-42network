@@ -30,7 +30,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	len;
 	char	*end;
 
-	if (!s1)
+	if (!s1 || !set)
 		return (0);
 	while (char_exists(*s1, (char *)set))
 		s1 ++;
