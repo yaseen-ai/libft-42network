@@ -1,4 +1,4 @@
-NAME := libft.a
+NAME = libft.a
 SRC := ft_atoi.c \
 	ft_bzero.c \
 	ft_calloc.c \
