@@ -6,14 +6,13 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:48:44 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/10 20:54:58 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/11 16:22:54 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-size_t	count_words(char const *s, char c)
+static size_t	count_words(char const *s, char c)
 {
 	size_t	i;
 	size_t	words;
@@ -32,7 +31,7 @@ size_t	count_words(char const *s, char c)
 	return (words);
 }
 
-size_t	word_len(char const *s, char c)
+static size_t	word_len(char const *s, char c)
 {
 	size_t	i;
 
@@ -42,7 +41,7 @@ size_t	word_len(char const *s, char c)
 	return (i);
 }
 
-void	free_all(char **s, size_t index)
+static void	free_all(char **s, size_t index)
 {
 	while (index)
 	{
@@ -52,7 +51,7 @@ void	free_all(char **s, size_t index)
 	free(s);
 }
 
-char	**allocate(char **result, size_t i, char const *s, char c)
+static char	**allocate(char **result, size_t i, char const *s, char c)
 {
 	result[i] = (char *) malloc((word_len(s, c) + 1) * sizeof(char));
 	if (!result[i])

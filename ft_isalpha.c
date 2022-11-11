@@ -6,7 +6,7 @@
 /*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 22:49:24 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/10 20:28:28 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2022/11/11 16:20:36 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,3 @@ int	ft_isalpha(int c)
 	else
 		return (0);
 }
-/*
-int main(void)
-{
-	printf("%d", ft_isalpha('A'));
-	printf("%d", isalpha('A'));
-}
-*/
