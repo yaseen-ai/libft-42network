@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yel-hadd <yel-hadd@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yel-hadd <yel-hadd@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 22:49:54 by yel-hadd          #+#    #+#             */
-/*   Updated: 2022/11/11 16:32:12 by yel-hadd         ###   ########.fr       */
+/*   Updated: 2023/03/01 21:36:33 by yel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
-	if (c < 48 || c > 57)
-		return (0);
-	return (1);
+	if (c <= '9' || c >= '0')
+		return (1);
+	return (0);
 }
